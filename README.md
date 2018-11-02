@@ -85,6 +85,8 @@ Type | Description
 :----|:------------
 [`Spy<T>`](src/index.ts#L2) | The created spy function.
 
+> The `length ` property of the spy function can be different to `func.length`.
+
 **Details:**
 
 Create a spy function.

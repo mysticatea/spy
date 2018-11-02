@@ -101,7 +101,6 @@ export function spy<T extends (...args: any[]) => any>(f?: T): Spy<T> {
     }
 
     Object.defineProperties(spy, {
-        length: descriptors.length(f ? f.length : 0),
         calls: descriptors.calls(calls),
         returnedCalls: descriptors.returnedCalls,
         thrownCalls: descriptors.thrownCalls,
@@ -118,10 +117,6 @@ export function spy<T extends (...args: any[]) => any>(f?: T): Spy<T> {
 }
 
 const descriptors = {
-    length(value: number): PropertyDescriptor {
-        return { value, configurable: true }
-    },
-
     calls(value: ReadonlyArray<Spy.Call<any>>): PropertyDescriptor {
         return { value, configurable: true }
     },
