@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@mysticatea/spy.svg)](https://www.npmjs.com/package/@mysticatea/spy)
 [![Downloads/month](https://img.shields.io/npm/dm/@mysticatea/spy.svg)](http://www.npmtrends.com/@mysticatea/spy)
-[![Build Status](https://travis-ci.com/mysticatea/spy.svg?branch=master)](https://travis-ci.org/mysticatea/spy)
+[![Build Status](https://travis-ci.com/mysticatea/spy.svg?branch=master)](https://travis-ci.com/mysticatea/spy)
 [![Coverage Status](https://codecov.io/gh/mysticatea/spy/branch/master/graph/badge.svg)](https://codecov.io/gh/mysticatea/spy)
 [![Dependency Status](https://david-dm.org/mysticatea/spy.svg)](https://david-dm.org/mysticatea/spy)
 
@@ -177,7 +177,7 @@ f.calls[0].this //→ correct `typeof box`.
 - [GitHub Releases](https://github.com/mysticatea/spy/releases)
 
 
-## 🍻 Contributing
+## ❤️ Contributing
 
 Welcome contributing!
 
