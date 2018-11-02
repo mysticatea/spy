@@ -83,7 +83,7 @@ Name | Type | Description
 
 Type | Description
 :----|:------------
-[Spy<T>](src/index.ts#L2) | The created spy function.
+[`Spy<T>`](src/index.ts#L2) | The created spy function.
 
 **Details:**
 
