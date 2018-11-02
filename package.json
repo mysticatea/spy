@@ -1,0 +1,52 @@
+{
+  "name": "@mysticatea/spy",
+  "version": "0.0.0",
+  "description": "Just a spy library.",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@mysticatea/eslint-plugin": "^7.0.0",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.1",
+    "codecov": "^3.1.0",
+    "eslint": "^5.8.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "rimraf": "^2.6.2",
+    "ts-node": "^7.0.1",
+    "typescript": "~3.1.4",
+    "warun": "^1.0.0"
+  },
+  "scripts": {
+    "build": "npm run -s clean && tsc -p tsconfig.build.json",
+    "clean": "rimraf .nyc_output coverage dist",
+    "codecov": "codecov",
+    "lint": "eslint src test --ext .ts",
+    "test": "npm run -s lint && tsc -p tsconfig.test.json && nyc mocha \"test/*.ts\"",
+    "preversion": "npm test",
+    "version": "npm run -s build",
+    "postversion": "git push && git push --tags",
+    "watch": "warun \"{src,test}/**/*.ts\" -- nyc mocha \"test/*.ts\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mysticatea/spy.git"
+  },
+  "keywords": [
+    "spy",
+    "test",
+    "testing"
+  ],
+  "author": "Toru Nagashima (https://github.com/mysticatea)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mysticatea/spy/issues"
+  },
+  "homepage": "https://github.com/mysticatea/spy#readme"
+}

@@ -1,0 +1,11 @@
+sudo: false
+
+language: node_js
+node_js:
+  - "6.0.0"
+  - "6"
+  - "8"
+  - "10"
+
+after_success:
+  - npm run codecov

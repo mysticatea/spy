@@ -1,0 +1,11 @@
+root: true
+extends:
+  - plugin:@mysticatea/es2018
+
+overrides:
+  - files: "*.ts"
+    rules:
+      no-shadow: "off"
+      require-jsdoc: "off"
+      "@mysticatea/ts/no-use-before-define": "off"
+      "@mysticatea/prefer-for-of": "off"

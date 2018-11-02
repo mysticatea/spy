@@ -1,0 +1,6 @@
+{
+    "include": ["src/**/*.ts"],
+    "extension": [".ts"],
+    "reporter": ["text", "lcov"],
+    "require": ["./scripts/ts-register"]
+}
