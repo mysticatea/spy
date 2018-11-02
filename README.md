@@ -20,7 +20,7 @@ npm install --save-dev @mysticatea/spy
 **Requirements:**
 
 - Node.js 6.0.0 and over.
-- TypeScript 3.1 and over.
+- TypeScript 3.1 and over (if you use `spy` in TypeScript).
 
 
 ## 📖 Usage
@@ -70,24 +70,20 @@ console.log(func2.thrownCalls[0]) //→ { type: "throw", this: undefined, argume
 
 ## 📚 API Reference
 
-### s = spy(func?)
+### s = spy<T>(func?)
 
 **Parameters:**
 
 Name | Type | Description
 :----|:-----|:------------
-`TThis` | `*` | This is a type parameter which should be inferred as the `this` type of `func`. If `func` is omitted, this is `undefined`.
-`TArguments` | `* extends any[]` | This is a type parameter which should be inferred as the arguments type of `func`. If `func` is omitted, this is `[]`.
-`TReturn` | `*` | This is a type parameter which should be inferred as the return type of `func`. If `func` is omitted, this is `void`.
-`func` | `((this: TThis, ...args: TArguments) => TReturn)|undefined` | Optional behavior of the spy.
+`T` | `* extends (...args: any[]) => any` | The type of `func`. If `func` is omitted, this is `() => void`.
+`func` | `T` or `undefined` | Optional behavior of the spy.
 
 **Return value:**
 
-Name | Type | Description
-:----|:-----|:------------
-- | [Spy<TThis, TArguments, TReturn>](src/index.ts#L2) | The created spy function.
-
-The created spy function has the type `(this: TThis, ...args: TArguments) => TReturn`. This should be the same type of `func`.
+Type | Description
+:----|:------------
+[Spy<T>](src/index.ts#L2) | The created spy function.
 
 **Details:**
 
@@ -107,9 +103,9 @@ The element of this array has the following properties:
 Name | Type | Description
 :----|:-----|:------------
 `type` | `string` | The result type of this call. If the behavior of this spy has thrown an error, this is `"throw"`. Otherwise, this is `"return"`.
-`this` | `TThis` | The `this` value of this call.
-`arguments` | `TArguments` | The arguments of this call.
-`return` | `TReturn` | The return value of this call. This exists only if `type === "return"`.
+`this` | `This<T>` | The `this` value of this call.
+`arguments` | `Parameters<T>` | The arguments of this call.
+`return` | `ReturnType<T>` | The return value of this call. This exists only if `type === "return"`.
 `throw` | `any` | The thrown value of this call. This exists only if `type === "throw"`.
 
 ### s.firstCall
