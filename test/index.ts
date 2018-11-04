@@ -617,4 +617,24 @@ describe("'Spy' object:", () => {
             assert.strictEqual(f.calls[0], undefined)
         })
     })
+
+    describe("'toString' method", () => {
+        it("should be a function.", () => {
+            const f = spy()
+            assert.strictEqual(typeof f.toString, "function")
+        })
+
+        it("should return the original function with a comment. (noop)", () => {
+            const f = spy()
+            assert.strictEqual(f.toString(), "/* The spy of */ function(){}")
+        })
+
+        it("should return the original function with a comment. (with f)", () => {
+            const f0 = function original(): number {
+                return 777
+            }
+            const f = spy(f0)
+            assert.strictEqual(f.toString(), `/* The spy of */ ${f0}`)
+        })
+    })
 })

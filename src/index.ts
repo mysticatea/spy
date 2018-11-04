@@ -111,6 +111,7 @@ export function spy<T extends (...args: any[]) => any>(f?: T): Spy<T> {
         firstThrownCall: descriptors.firstThrownCall,
         lastThrownCall: descriptors.lastThrownCall,
         reset: descriptors.reset,
+        toString: descriptors.toString(f),
     })
 
     return spy as Spy<T>
@@ -223,6 +224,15 @@ const descriptors = {
         },
         configurable: true,
     } as PropertyDescriptor,
+
+    toString(f: ((...args: any[]) => any) | undefined): PropertyDescriptor {
+        return {
+            value: function toString() {
+                return `/* The spy of */ ${f ? f.toString() : "function(){}"}`
+            },
+            configurable: true,
+        }
+    },
 }
 
 function isReturned(call: Spy.Call<any>): call is Spy.ReturnedCall<any> {
